@@ -59,16 +59,16 @@
 \RequirePackage{biblatex}
 
 % Remove some unwanted entries from the bibliography
-\AtEveryBibitem{
-	\clearfield{issn}
-	\clearfield{isbn}
-	\clearfield{archivePrefix}
-	\clearfield{arxivId}
-	\clearfield{pmid}
-	\clearfield{eprint}
-	\ifentrytype{online}{}{\ifentrytype{misc}{}{\clearfield{url}}}
-	\ifentrytype{book}{\clearfield{doi}}{}
-}
+% \AtEveryBibitem{
+% 	\clearfield{issn}
+% 	\clearfield{isbn}
+% 	\clearfield{archivePrefix}
+% 	\clearfield{arxivId}
+% 	\clearfield{pmid}
+% 	\clearfield{eprint}
+% 	\ifentrytype{online}{}{\ifentrytype{misc}{}{\clearfield{url}}}
+% 	\ifentrytype{book}{\clearfield{doi}}{}
+% }
 
 % Convert months to integers
 \DeclareSourcemap{
@@ -409,18 +409,18 @@
 % abstract.
 
 % Cite commands (assuming biblatex is loaded)
-\DeclareCiteCommand{\fullcite}{%
-	\defcounter{maxnames}{99}%
-	\usebibmacro{prenote}}
-	{\clearfield{url}%
-	\clearfield{pages}%
-	\clearfield{pagetotal}%
-	\clearfield{edition}%
-	\clearfield{issn}%
-	\clearfield{doi}%
-	\usedriver
-	{\DeclareNameAlias{sortname}{default}}
-	{\thefield{entrytype}}
-}
-{\multicitedelim}
-{\usebibmacro{postnote}}
+%\DeclareCiteCommand{\fullcite}{%
+%	\defcounter{maxnames}{99}%
+%	\usebibmacro{prenote}}
+%	{\clearfield{url}%
+%	\clearfield{pages}%
+%	\clearfield{pagetotal}%
+%	\clearfield{edition}%
+%	\clearfield{issn}%
+%	\clearfield{doi}%
+%	\usedriver
+%	{\DeclareNameAlias{sortname}{default}}
+%	{\thefield{entrytype}}
+%}
+%{\multicitedelim}
+%{\usebibmacro{postnote}}
