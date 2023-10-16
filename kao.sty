@@ -760,6 +760,11 @@
 		capbesidesep=marginparsep,%
 		floatwidth=\textwidth,%Width of the figure equal to the width of the text
 	}%
+	\floatsetup[widelisting]{% Captions for wide listings
+		margins=hangright,% Put captions above the listing
+		facing=no,%
+		capposition=above%
+	}%
 	\captionsetup*[lstlisting]{%
 		format=llap,%
 		labelsep=space,%
@@ -823,6 +828,11 @@
 		capbesidewidth=\marginparwidth,% Width of the caption equal to the width of the margin
 		capbesidesep=marginparsep,%
 		floatwidth=\textwidth,% Width of the figure equal to the width of the text
+	}%
+	\floatsetup[widelisting]{% Captions for wide listings
+		margins=hangright,% Put captions above the listing
+		facing=no,%
+		capposition=above%
 	}%
 	\captionsetup*[lstlisting]{%
 		format=llap,%
