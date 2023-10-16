@@ -865,6 +865,11 @@
 		margins=centering,%
 		floatwidth=\textwidth%
 	}
+	\floatsetup[widelisting]{ % Captions for wide figures
+		margins=hangoutside, % Put captions below the figure
+		facing=yes,%
+		capposition=above%
+	}
 	\captionsetup*[lstlisting]{% Captions style for lstlistings
 		%format=margin,%
 		labelsep=colon,%
