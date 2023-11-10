@@ -1035,8 +1035,8 @@
 		% Dry run to get the needed widths
 		\etocsetstyle{mtocsection}%
 			{}%
-			{\setbox0\hbox{{\usekomafont{section}\small\etocthenumber\kern.8mm}}%%
-			 \setbox1\hbox{{\usekomafont{section}\small\etocthepage}}}%
+			{\setbox0\hbox{{\normalfont\footnotesize\etocthenumber\kern.8mm}}%%
+			 \setbox1\hbox{{\normalfont\footnotesize\etocthepage}}}%
 			{\ifdim\wd0>\margintocnumwidth \edef\margintocnumwidth{\the\wd0} \fi%%
 			 \ifdim\wd1>\margintocpagenumwidth \edef\margintocpagenumwidth{\the\wd1} \fi}%
 			{}%
@@ -1076,7 +1076,7 @@
 		{\makebox[0pt][r]{\makebox[\margintocnumwidth][l]{\mdseries\etocnumber}}{\mdseries\etocname\nobreak\leaders\hbox{\hbox to 1.5ex {\hss.\hss}}\hfill\rlap{\makebox[\margintocpagenumwidth][r]{\mdseries\etocpage}}}\par}%
 		{\parskip 2.5pt}%
 		% Set the global style of the toc
-		\etocsettocstyle{\usekomafont{section}\small}{}%
+		\etocsettocstyle{\normalfont\footnotesize}{}%
 		\etocsetnexttocdepth{\themargintocdepth}%
 		% Print the table of contents in the margin
 		\marginnote[#1]{\localtableofcontents}%
