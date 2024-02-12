@@ -166,37 +166,58 @@
 \@ifclasswith{\@baseclass}{a4paperlandscape}{\setlength{\hscale}{1.414mm}\setlength{\vscale}{0.707mm}}{}
 \@ifclasswith{\@baseclass}{169paperlandscape}{\setlength{\hscale}{1.414mm}\setlength{\vscale}{0.562mm}}{}
 
+
+\newlength{\lscphscale}
+\newlength{\lscpvscale}
+\@ifclasswith{\@baseclass}{a4paper}{\setlength{\lscphscale}{1.414mm}\setlength{\lscpvscale}{0.707mm}}{}
+
 % Set the default page layout
 \RequirePackage[
-	paperwidth=210\hscale,
-	paperheight=297\vscale,
-]{geometry}
+paperwidth=210\hscale,
+paperheight=297\vscale,
+  ]{geometry}
 
-% Command to choose among the three possible layouts
-\DeclareDocumentCommand{\pagelayout}{m}{%
-	\ifthenelse{\equal{margin}{#1}}{\marginlayout\marginfloatsetup}{}%
-	\ifthenelse{\equal{wide}{#1}}{\widelayout\widefloatsetup}{}%
-	\ifthenelse{\equal{fullwidth}{#1}}{\fullwidthlayout\widefloatsetup}{}%
-}
+  % Command to choose among the three possible layouts
+  \DeclareDocumentCommand{\pagelayout}{m}{%
+    \ifthenelse{\equal{margin}{#1}}{\marginlayout\marginfloatsetup}{}%
+    \ifthenelse{\equal{wide}{#1}}{\widelayout\widefloatsetup}{}%
+    \ifthenelse{\equal{fullwidth}{#1}}{\fullwidthlayout\widefloatsetup}{}%
+  }
 
-\newif\ifwidelayout%
-\def\IfWideLayout{%
-	\ifwidelayout%
-		\expandafter\@firstoftwo%
-	\else%
-		\expandafter\@secondoftwo%
-	\fi%
-}
+  \newif\ifwidelayout%
+  \def\IfWideLayout{%
+    \ifwidelayout%
+      \expandafter\@firstoftwo%
+    \else%
+      \expandafter\@secondoftwo%
+    \fi%
+  }
 
-% Layout #1: large margins
-\newcommand{\marginlayout}{%
-	\newgeometry{
-		top=27.4\vscale,
-		bottom=27.4\vscale,
-		inner=24.8\hscale,
-		textwidth=107\hscale,
-		marginparsep=6.2\hscale,
-		marginparwidth=47.7\hscale,
+  % Layout #1: large margins
+  \newcommand{\marginlayout}{%
+    \newgeometry{
+      top=27.4\vscale,
+      bottom=27.4\vscale,
+      inner=24.8\hscale,
+      textwidth=107\hscale,
+      marginparsep=6.2\hscale,
+      marginparwidth=47.7\hscale,
+    }%
+    \recalchead%
+    \widelayoutfalse%
+  }
+
+
+  \newcommand{\lscpmarginlayout}{%
+    \newgeometry{
+    paperwidth=210\lscphscale,
+   	paperheight=297\lscpvscale,
+		top=27.4\lscpvscale,
+		bottom=27.4\lscpvscale,
+		inner=24.8\lscphscale,
+		textwidth=107\lscphscale,
+		marginparsep=6.2\lscphscale,
+		marginparwidth=47.7\lscphscale,
 	}%
 	\recalchead%
 	\widelayoutfalse%
